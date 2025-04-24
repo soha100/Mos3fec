@@ -1,0 +1,245 @@
+<header class="bg-white">
+  <!-- Side Menu Overlay -->
+  <div
+    *ngIf="isMenuOpen"
+    class="fixed inset-0 bg-black bg-opacity-50 z-40"
+    (click)="toggleMenu()"
+  ></div>
+
+  <!-- Side Menu -->
+  <div
+    [class]="
+      'fixed top-0 right-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out z-50 ' +
+      (isMenuOpen ? 'translate-x-0' : 'translate-x-full')
+    "
+    (click)="$event.stopPropagation()"
+  >
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-[6vw] font-bold text-primary lg:text-[40px]">
+          مُسْعِفك
+        </h1>
+        <img
+          class="w-[6vw] lg:w-auto"
+          src="stethoscope_check (1).svg"
+          alt="Logo"
+        />
+        <button
+          (click)="toggleMenu()"
+          class="text-gray-500 hover:text-gray-700"
+        ></button>
+      </div>
+      <nav class="flex flex-col space-y-[5vh] lg:space-y-[200px]">
+        <div class="flex flex-col space-y-4">
+          <a
+            routerLink="/doctor/dashboard"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-house me-3 pr-3 text-primary"></i>الرئيسية</a
+          >
+          <a
+            routerLink="/doctor/dashboard/appointment"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-regular fa-file me-3 pr-3 text-primary"></i
+            >المواعيد</a
+          >
+          <a
+            routerLink="/doctor/dashboard/chat"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-regular fa-comment me-3 pr-3 text-primary"></i
+            >الدردشة</a
+          >
+          <a
+            routerLink="/doctor/dashboard/statistics"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-chart-pie me-3 pr-3 text-primary"></i
+            >الإحصائيات</a
+          >
+          <a
+            routerLink="/doctor/dashboard/comments"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-regular fa-message me-3 pr-3 text-primary"></i
+            >التعليقات</a
+          >
+          <a
+            routerLink="/doctor/dashboard/patients"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-users me-3 pr-3 text-primary"></i>المرضى</a
+          >
+          <a
+            routerLink="/doctor/dashboard/recent-invoices"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-users me-3 pr-3 text-primary"></i>الفواتير
+            الاخيرة</a
+          >
+          <a
+            routerLink="/doctor/dashboard/confirmation"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-users me-3 pr-3 text-primary"></i>
+            طلب التأكيد
+          </a>
+
+          <a
+            routerLink="/doctor/dashboard/doctor-profile"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-regular fa-circle-user me-3 pr-3 text-primary"></i
+            >الملف الشخصى</a
+          >
+
+          <a
+            routerLink="/doctor/dashboard/settings"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i class="fa-solid fa-gear me-3 pr-3 text-primary"></i>
+            الاعدادات</a
+          >
+          <!-- <a
+            routerLink="/doctor/dashboard/chatbot"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-message me-3 pr-3 text-primary"></i> شات بوت
+          </a> -->
+          <a
+            routerLink="/doctor/dashboard/ai_chat"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-message me-3 pr-3 text-primary"></i> شات بوت
+          </a>
+          <a
+            (click)="toggleModal(); closeMenu()"
+            href="javascript:;"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+            ><i
+              class="fa-solid fa-arrow-right-from-bracket me-3 pr-3 text-primary"
+            ></i
+            >تسجيل الخروج</a
+          >
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between gap-4">
+      <!-- Logo and Menu Button -->
+      <div class="flex items-center gap-4">
+        <!-- Menu Button -->
+        <button (click)="toggleMenu()" class="text-primary">
+          <svg
+            class="h-[36px] w-[28px]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        <!-- Logo -->
+        <h1 class="text-[5vw] font-bold text-primary lg:text-[40px]">
+          مُسْعِفك
+        </h1>
+        <img
+          class="w-[6vw] lg:w-auto"
+          src="stethoscope_check (1).svg"
+          alt="Logo"
+        />
+      </div>
+
+      <!-- Search Bar -->
+      <div class="hidden md:flex flex-1 max-w-xl items-center gap-6">
+        <div class="relative w-full">
+          <input
+            type="search"
+            placeholder="البحث"
+            class="w-full px-10 py-3 rounded-[25px] border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#016239] focus:border-transparent"
+          />
+          <button
+            class="absolute right-3 top-4 text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- notification -->
+      <div
+        class="bg-[#2E7D5C] h-[50px] w-[55px] rounded-[10px] text-[24px] text-white flex items-center justify-center"
+      >
+        <i class="fa-regular fa-bell"></i>
+      </div>
+    </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>
+
+<!-- modal -->
+<div
+  *ngIf="isModalVisible"
+  class="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen bg-black bg-opacity-50"
+>
+  <div class="p-4 w-full max-w-[90%] sm:max-w-md bg-white rounded-lg shadow-sm">
+    <div class="p-4 md:p-5 text-center">
+      <div
+        class="flex items-center justify-center mx-auto mb-4 text-primary w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] rounded-full bg-[#F5F8FF]"
+      >
+        <i
+          class="fa-solid fa-arrow-right-from-bracket text-[24px] sm:text-[32px]"
+        ></i>
+      </div>
+      <h3 class="mb-5 text-[18px] sm:text-[20px] font-medium text-[#393C44]">
+        هل تريد تسجيل الخروج
+      </h3>
+      <button
+        (click)="confirmLogout()"
+        class="text-white bg-primary focus:ring-4 focus:outline-none font-medium rounded-[32px] text-[14px] sm:text-[16px] inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 text-center"
+      >
+        تسجيل الخروج
+      </button>
+      <button
+        (click)="toggleModal()"
+        class="py-2 px-4 sm:py-2.5 sm:px-5 ms-3 text-[20px] sm:text-[24px] font-medium text-red-600 focus:outline-none"
+      >
+        الغاء
+      </button>
+    </div>
+  </div>
+</div>

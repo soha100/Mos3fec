@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://mosefak-apis-env.eba-miwypja3.us-east-1.elasticbeanstalk.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

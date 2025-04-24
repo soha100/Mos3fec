@@ -1,0 +1,83 @@
+<div class="p-6">
+  <div class="">
+    <h2 class="text-[32px] font-bold text-primary">الحساب</h2>
+
+    <div class="flex items-center mt-4 gap-4 bg-[rgba(217,217,217,0.1)] p-4">
+      <img src="Image2.png" alt=" " class="w-24 rounded-md" />
+
+      <div class="">
+        <p
+          class="text-primary text-[24px] sm:text-[20px] xs:text-[18px] font-bold"
+        >
+          صورة الملف الشخصى
+        </p>
+        <div class="flex gap-2">
+          <button class="text-primary text-sm">صورة جديدة</button>
+          <button class="text-red-500 text-sm">حذف</button>
+        </div>
+        <p class="text-[16px] text-[#4F5159] mt-1">
+          يجب أن لا تزيد حجم الصور عن 16 Mp
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <span class="text-primary text-[24px] font-bold">معلومات</span>
+  </div>
+  <div class="bg-[rgba(217,217,217,0.1)] p-4 mt-4 rounded-lg shadow-sm">
+    <div class="mt-4 grid grid-cols-3 gap-2">
+      <input
+        type="text"
+        placeholder=" الاسم الاول"
+        class="border p-2 rounded-md"
+      />
+      <input
+        type="text"
+        placeholder="الاسم الثانى"
+        class="border p-2 rounded-md"
+      />
+      <select class="border p-2 rounded-md">
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+      </select>
+    </div>
+    <div class="mt-4 grid grid-cols-3 gap-2">
+      <input
+        type="text"
+        placeholder="تاريخ الميلاد"
+        class="border p-2 rounded-md"
+      />
+      <input type="email" placeholder="الايميل" class="border p-2 rounded-md" />
+      <input
+        type="text"
+        placeholder="رقم الهاتف"
+        class="border p-2 rounded-md"
+      />
+    </div>
+    <div class="mt-4 grid grid-cols-3 gap-2">
+      <input type="text" placeholder="الدولة " class="border p-2 rounded-md" />
+      <input type="text" placeholder="المدينة" class="border p-2 rounded-md" />
+      <input type="text" placeholder="الشارع" class="border p-2 rounded-md" />
+    </div>
+
+    <textarea
+      placeholder="نبذه عنى "
+      class="w-full border p-2 rounded-md mt-4"
+    ></textarea>
+    <textarea
+      placeholder=" رقم الرخصة"
+      class="w-full border p-2 rounded-md mt-4"
+    ></textarea>
+  </div>
+
+  <div class="mt-4 flex gap-2 justify-end">
+    <button
+      class="px-4 py-2 bg-white text-red-500 border border-red-500 rounded-md"
+    >
+      إلغاء
+    </button>
+    <button class="px-4 py-2 bg-primary text-white rounded-md">
+      حفظ التعديلات
+    </button>
+  </div>
+</div>

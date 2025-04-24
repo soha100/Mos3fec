@@ -1,0 +1,473 @@
+<div class="min-h-screen p-4 lg:p-6">
+  <div class="flex flex-col lg:flex-row gap-6 md:flex-col-reverse">
+    <!-- Main Content Column -->
+    <div class="order-2 md:order-2 lg:order-none flex-1 space-y-6">
+      <!-- Stats & Calendar Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+        <!-- Calendar Card -->
+        <div class="lg:col-span-5">
+          <div
+            class="h-full rounded-3xl bg-[rgba(168,213,186,0.60)] p-4 shadow-[10px_5px_12px_rgba(168,213,186,0.5)]"
+          >
+            <app-calender></app-calender>
+          </div>
+        </div>
+
+        <!-- Stats Card -->
+        <div class="lg:col-span-7">
+          <div
+            class="h-full rounded-3xl bg-[rgba(168,213,186,0.60)] p-6 shadow-[10px_5px_12px_rgba(168,213,186,0.5)]"
+          >
+            <div class="flex flex-wrap justify-between items-center mb-6">
+              <div>
+                <h3 class="text-lg font-semibold text-primary">الاحصائيات</h3>
+                <span class="text-white text-sm">يناير2023</span>
+              </div>
+              <div class="bg-white px-4 py-2 rounded-[30px]">
+                <select class="outline-none border-none bg-transparent">
+                  <option value="daily">اليومى</option>
+                  <option value="weekly" selected>الاسبوعى</option>
+                  <option value="monthly">الشهرى</option>
+                </select>
+              </div>
+            </div>
+            <div class="chart-container h-[250px]">
+              <app-chart></app-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Cards Row -->
+      <div class="flex flex-wrap w-full">
+        <!-- القسم الأول (ثلثي العرض على الشاشات الكبيرة، يأخذ العرض كامل على الشاشات الصغيرة) -->
+        <div class="w-full md:w-2/3 p-4">
+          <div
+            class="bg-white shadow-lg rounded-xl p-4 w-full max-w-3xl mx-auto"
+          >
+            <!-- العنوان -->
+            <div
+              class="flex justify-between items-center border-b border-primary pb-2 mb-2"
+            >
+              <h2 class="text-lg font-bold text-green-700">طلب الحجز</h2>
+              <a href="#" class="text-gray-500 text-sm">مشاهدة الكل</a>
+            </div>
+
+            <!-- تكرار الحجوزات -->
+            <div
+              *ngFor="let booking of bookings"
+              class="border-b last:border-b-0 border-primary py-3 flex flex-col md:flex-row items-center gap-4"
+            >
+              <div class="flex flex-1 items-center gap-2">
+                <img
+                  [src]="booking.patientImage"
+                  class="w-12 h-12 rounded-full"
+                  [alt]="booking.name"
+                />
+                <div>
+                  <p>{{ booking.name }}</p>
+                  <p class="text-sm text-gray-500">#{{ booking.id }}</p>
+                </div>
+              </div>
+
+              <!-- معلومات الحجز -->
+              <div class="flex-1 text-center md:text-left">
+                <p class="text-gray-500 text-sm">{{ booking.date }}</p>
+                <p class="text-gray-500 text-sm">{{ booking.time }}</p>
+                <button
+                  class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-2 md:mt-0"
+                >
+                  حجز
+                </button>
+              </div>
+
+              <!-- أيقونات القبول والرفض -->
+              <div class="flex items-center gap-2">
+                <button
+                  class="border border-[#F24822] text-[#F24822] w-8 h-8 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-xmark text-[#F24822] text-[16px]"></i>
+                </button>
+                <button
+                  class="border border-[#0D99FF] text-[#0D99FF] w-8 h-8 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-check text-[#0D99FF] text-[16px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- القسم الثاني (ثلث العرض على الشاشات الكبيرة، يأخذ العرض كامل على الشاشات الصغيرة) -->
+        <div class="w-full md:w-1/3 p-4 flex flex-col gap-4">
+          <!-- بطاقة المرضى -->
+          <div class="rounded-3xl shadow-md overflow-hidden">
+            <div class="flex h-full flex-col md:flex-row">
+              <div class="flex-1 bg-[#2E7D5C] p-6 rounded-r-3xl text-white">
+                <h3 class="text-3xl font-semibold mb-2">90</h3>
+                <p class="text-sm font-medium">المرضى</p>
+                <p class="text-xs text-gray-300">30% منذ الأسبوع الماضي</p>
+              </div>
+              <div
+                class="w-full md:w-20 bg-[#A8D5BA] rounded-l-3xl flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-[#2E7D5C]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- المرضى اليوم -->
+          <div class="p-6 rounded-3xl bg-[#A8D5BA] shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+              <div class="text-right">
+                <p class="text-primary text-xl md:text-2xl">المرضى اليوم</p>
+                <p class="text-gray-700 text-xl md:text-2xl">90</p>
+                <p class="text-gray-700 text-sm">30% منذ الأسبوع الماضي</p>
+              </div>
+              <div
+                class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-2 border-[#2E7D5C] rounded-full bg-[rgba(217,217,217,0.1)]"
+              >
+                <i class="fa-solid fa-bed-pulse text-primary"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- مواعيد اليوم -->
+          <div class="p-6 rounded-3xl bg-[#A8D5BA] shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+              <div class="text-right">
+                <p class="text-primary text-xl md:text-2xl">مواعيد اليوم</p>
+                <p class="text-gray-700 text-xl md:text-2xl">80</p>
+                <p class="text-gray-700 text-sm">30% منذ الأسبوع الماضي</p>
+              </div>
+              <div
+                class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-2 border-[#2E7D5C] rounded-full bg-[rgba(217,217,217,0.1)]"
+              >
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Column -->
+    <div class="order-1 md:order-1 lg:order-none w-full lg:w-[400px] shrink-0">
+      <div
+        class="bg-primary text-white rounded-3xl p-6 shadow-[10px_5px_12px_rgba(168,213,186,0.5)] h-[970px]"
+      >
+        <!-- Profile Section -->
+        <div class="flex flex-col items-center mt-5 mb-10">
+          <div class="relative w-24 h-24 mb-3">
+            <img
+              src="Image.png"
+              alt="Doctor profile"
+              class="rounded-full border-4 border-white object-cover w-full h-full"
+            />
+          </div>
+          <h2 class="text-xl font-semibold mb-1">
+            {{ doctorFullName }}
+          </h2>
+          <p class="text-emerald-200 text-sm">اخصائي اسنان</p>
+
+          <!-- Patients Preview -->
+          <div
+            class="flex w-full justify-between mt-10 rounded-[30px] border p-4"
+          >
+            <h2 class="font-bold text-[16px]">المرضى</h2>
+            <div class="flex -space-x-3 space-x-reverse">
+              <div class="flex -space-x-3 space-x-reverse">
+                <div class="w-8 h-8 rounded-full overflow-hidden">
+                  <img
+                    src="pataint-3.png"
+                    alt=""
+                    class="bg-[#E8BBF8] rounded-full ml-[-10px]"
+                  />
+                </div>
+                <div class="w-8 h-8 rounded-full overflow-hidden">
+                  <img
+                    src="pataint-2.png"
+                    alt=""
+                    class="bg-[#BBF8F1] rounded-full ml-[-10px]"
+                  />
+                </div>
+                <div class="w-8 h-8 rounded-full overflow-hidden">
+                  <img
+                    src="pataint-3.png"
+                    alt=""
+                    class="w-8 h-8 bg-[#E8BBF8] rounded-full ml-[-10px]"
+                  />
+                </div>
+                <div class="w-8 h-8 rounded-full bg-emerald-100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="border rounded-3xl h-[460px] p-3 flex flex-col h-[600px]">
+          <!-- Chat Header -->
+          <div class="flex items-center justify-between p-3 border-b">
+            <div class="flex items-center gap-3">
+              <img src="Ellipse 1.png" alt="" class="w-10 h-10 rounded-full" />
+              <div>
+                <p class="font-medium">ابراهيم الدسوقي</p>
+                <p class="text-xs text-emerald-200">منذ 15 دقيقه</p>
+              </div>
+            </div>
+            <button
+              class="w-10 h-10 bg-[#A8D5BA] rounded-full flex items-center justify-center text-white hover:bg-[#97c4a9] transition-colors"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </button>
+          </div>
+
+          <!-- Messages -->
+          <div class="flex-1 overflow-y-auto p-4 space-y-6">
+            <div class="flex gap-3">
+              <img src="Ellipse 1.png" class="w-10 h-10 rounded-full" />
+              <div class="max-w-[70%] rounded-2xl p-3 bg-[#A8D5BA]">
+                <p class="text-gray-800">مرحبا دكتور محمد</p>
+              </div>
+            </div>
+            <div class="flex gap-3 justify-end">
+              <div class="max-w-[70%] rounded-2xl p-3 bg-white">
+                <p class="text-gray-800">مرحبا ابراهيم</p>
+              </div>
+              <img src="Image 3.png" class="w-10 h-10 rounded-full" />
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <div class="relative mt-4">
+            <input
+              type="text"
+              placeholder="اكتب رسالة ..."
+              class="w-full bg-[#D9D9D9] rounded-3xl py-4 px-16 placeholder:text-[#4F5159] focus:outline-none"
+            />
+            <button
+              class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-2xl hover:bg-primary/90 transition-colors"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button
+              class="absolute left-4 top-1/2 -translate-y-1/2 text-[#4F5159] text-xl hover:text-gray-700 transition-colors"
+            >
+              <i class="fa-solid fa-microphone"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- second row -->
+<div class="flex flex-col md:flex-row w-full p-4 gap-4">
+  <!-- الموعد القادم -->
+  <div
+    class="flex-1 bg-[rgba(168,213,186,0.3)] rounded-[25px] p-3 min-w-[300px]"
+  >
+    <h2
+      class="text-primary text-[24px] font-bold mb-4 text-center md:text-right"
+    >
+      الموعد القادم
+    </h2>
+
+    <div
+      class="p-3 mb-2 flex flex-col sm:flex-row items-center justify-between border-b border-[#23262F] gap-4"
+    >
+      <div class="flex items-center gap-4">
+        <img
+          src="pataint-1.png"
+          alt="Profile"
+          class="w-[52px] h-[52px] rounded-full"
+        />
+        <div>
+          <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+          <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+        </div>
+      </div>
+      <div class="text-center sm:text-right">
+        <p class="text-gray-700">ibrahem.com</p>
+        <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+      </div>
+      <div class="text-center">
+        <p class="text-[12px] text-primary">حجز</p>
+        <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col sm:flex-row justify-between items-center mt-4 p-3 gap-4"
+    >
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-video text-primary"></i>
+        <p class="text-[16px] text-[#23262F]">مواعيد الفيديو</p>
+      </div>
+      <div class="flex gap-2">
+        <button
+          class="w-full sm:w-[103px] bg-white border text-primary px-4 py-2 rounded-lg text-[12px]"
+        >
+          مراسلة الآن
+        </button>
+        <button
+          class="w-full sm:w-[103px] bg-primary text-white px-4 py-2 rounded-lg text-[12px]"
+        >
+          ابدأ الآن
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- المرضى الجدد -->
+  <div class="flex-1 min-w-[300px]">
+    <div class="bg-white shadow-lg rounded-xl p-4 w-full">
+      <div class="flex justify-between items-center border-b pb-2 mb-4">
+        <h2 class="text-xl font-bold text-green-700">المرضى الجدد</h2>
+        <a href="#" class="text-green-600 text-sm">مشاهدة الكل</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div
+          *ngFor="let patient of patients"
+          class="bg-[rgba(168,213,186,0.3)] p-4 rounded-lg shadow-md flex flex-col items-center"
+        >
+          <div class="flex gap-3 items-center">
+            <img
+              [src]="patient.image"
+              alt="صورة المريض"
+              class="w-16 h-16 object-cover mb-2"
+            />
+            <div>
+              <p class="text-gray-800 font-semibold">{{ patient.name }}</p>
+              <p class="text-gray-400 text-sm">{{ patient.id }}</p>
+            </div>
+          </div>
+          <hr class="w-full my-2 border-gray-300" />
+          <p class="text-gray-500 text-sm">
+            آخر موعد حجز منذ {{ patient.lastBooking }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-[40%_59%] w-full gap-3 mt-5 p-4">
+  <!-- العيادات وأيام العمل -->
+  <div
+    class="bg-white shadow-lg border border-primary rounded-xl p-4 w-full max-w-3xl mx-auto"
+  >
+    <div
+      class="flex justify-between items-center border-b border-primary pb-2 mb-4"
+    >
+      <h2 class="text-lg font-bold text-green-700">العيادات وأيام العمل</h2>
+    </div>
+
+    <div
+      *ngFor="let clinic of clinics"
+      class="bg-gray-100 p-4 rounded-lg shadow-md mb-4"
+    >
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        <img
+          [src]="clinic.image"
+          alt="صورة العيادة"
+          class="w-16 h-16 rounded-md object-cover"
+        />
+        <div class="flex-1">
+          <p class="text-gray-800 font-bold">
+            <span class="text-black font-extrabold">{{ clinic.price }}</span>
+            جنيه
+          </p>
+          <p class="text-green-700 font-semibold">{{ clinic.doctor }}</p>
+          <p class="text-gray-500 text-sm">{{ clinic.location }}</p>
+
+          <div
+            *ngFor="let day of clinic.schedule"
+            class="flex justify-between items-center mt-2 bg-white rounded-lg p-2 shadow"
+          >
+            <div>
+              <span class="text-green-600 font-semibold">{{ day.day }}</span>
+              <span class="text-gray-600 text-sm">{{ day.time }}</span>
+            </div>
+          </div>
+
+          <a href="#" class="text-blue-600 text-sm mt-2 inline-block">تعديل</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الفواتير الأخيرة -->
+  <div class="bg-white rounded-lg shadow-md p-6 sm:p-10">
+    <div
+      class="flex justify-between items-center border-b border-primary pb-2 mb-4"
+    >
+      <h2 class="text-lg sm:text-xl font-bold text-primary">
+        الفواتير الأخيرة
+      </h2>
+      <a href="#" class="text-green-600 text-sm">مشاهدة الكل</a>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-max whitespace-nowrap">
+        <tbody>
+          @for (invoice of recentInvoices; track invoice.id) {
+          <tr class="border-b border-[#A8D5BA]">
+            <td class="py-2 px-4">
+              <div class="flex items-center gap-4">
+                <img
+                  [src]="invoice.patientImage"
+                  class="w-[40px] sm:w-[52px] h-[40px] sm:h-[52px] rounded-full"
+                  [alt]="invoice.patientName"
+                />
+                <div>
+                  <p class="text-[#23262F] text-[14px] sm:text-[16px]">
+                    {{ invoice.patientName }}
+                  </p>
+                  <p class="text-[#7B7D82] text-[12px] sm:text-[14px]">
+                    #{{ invoice.id }}
+                  </p>
+                </div>
+              </div>
+            </td>
+
+            <td
+              class="py-2 px-4 text-[#A8D5BA] text-[14px] sm:text-[18px] text-center"
+            >
+              <span class="text-primary">المبلغ</span>
+              <span> {{ invoice.amount }} جنيه </span>
+            </td>
+
+            <td class="py-2 px-4 text-[#A8D5BA] text-[14px] sm:text-[18px]">
+              {{ invoice.date }}
+            </td>
+
+            <td class="py-2 px-4">
+              <button
+                class="text-[#3C4045] text-[16px] sm:text-[18px] bg-[rgba(168,213,186,0.4)] rounded-full w-[40px] sm:w-[47px] h-[40px] sm:h-[47px]"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

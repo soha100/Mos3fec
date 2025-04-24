@@ -1,0 +1,103 @@
+<div class="flex h-screen">
+  <!-- Sidebar -->
+  <div class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-[6vw] font-bold text-primary lg:text-[40px]">
+          مُسْعِفك
+        </h1>
+        <img
+          class="w-[6vw] lg:w-auto"
+          src="stethoscope_check (1).svg"
+          alt="Logo"
+        />
+      </div>
+      <nav class="flex flex-col space-y-[5vh] lg:space-y-[200px]">
+        <div class="flex flex-col space-y-4">
+          <a
+            routerLink="/admin/admin-dash"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-solid fa-house me-3 pr-3 text-primary"></i>الرئيسية
+          </a>
+          <a
+            routerLink="/admin/admin-dash/appointments-list"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-file me-3 pr-3 text-primary"></i>المواعيد
+          </a>
+          <a
+            routerLink="/admin/admin-dash/specialties"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-comment me-3 pr-3 text-primary"></i>التخصصات
+          </a>
+          <a
+            routerLink="/admin/admin-dash/doctors"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-solid fa-user-doctor me-3 pr-3 text-primary"></i
+            >الاطباء
+          </a>
+          <a
+            routerLink="/admin/admin-dash/join-requests"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-message me-3 pr-3 text-primary"></i>طلبات
+            الانضمام
+          </a>
+          <a
+            routerLink="/admin/admin-dash/patients"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-solid fa-bed-pulse me-3 pr-3 text-primary"></i>المرضى
+          </a>
+
+          <a
+            routerLink="/admin/admin-dash/transactions"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-solid fa-file-contract me-3 pr-3 text-primary"></i>
+            المعاملات
+          </a>
+          <a
+            routerLink="/admin/admin-dash/reports"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-solid fa-file-contract me-3 pr-3 text-primary"></i>
+            تقرير المعاملات
+          </a>
+          <a
+            routerLink="/admin/admin-dash/reviews"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#4F5159] py-2 border border-primary rounded-[30px]"
+          >
+            <i class="fa-regular fa-message me-3 pr-3 text-primary"></i> التقييم
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 pr-64 p-6 overflow-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

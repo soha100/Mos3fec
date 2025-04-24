@@ -1,0 +1,29 @@
+/* Confirmed Button Styles */
+.btn-confirmed {
+  @apply bg-[#2e7d5c] text-white text-xs font-normal rounded-lg border border-white 
+    min-w-[125px] h-[38px] flex justify-center items-center;
+}
+
+/* Available Button Styles */
+.btn-available {
+  @apply bg-white text-[#2e7d5c] text-xs font-normal rounded-lg border border-[#2e7d5c] 
+    min-w-[125px] h-[38px] flex justify-center items-center;
+}
+
+::ng-deep .mat-calendar-body-selected {
+  background-color: #2e7d5c !important;
+  color: white !important;
+  border-radius: 10px !important;
+  border-color: #2e7d5c !important;
+  outline-color: #2e7d5c !important;
+}
+::ng-deep .mat-calendar-table-header {
+  color: #2e7d5c !important;
+  font-weight: bold !important;
+}
+
+::ng-deep .mat-calendar-period-button,
+::ng-deep .mat-calendar-arrow {
+  color: #2e7d5c !important;
+  font-weight: bold;
+}

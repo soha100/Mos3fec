@@ -1,0 +1,20 @@
+<!-- <div class="container">
+  <h2>Email Confirmation</h2>
+  <div *ngIf="isLoading">Verifying your email...</div>
+  <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div> -->
+<!-- <div class="p-4 text-center">
+  <h2>تأكيد البريد الإلكتروني</h2>
+  <p>جاري تأكيد حسابك، يرجى الانتظار...</p>
+
+  <p *ngIf="message" class="text-green-500 mt-2">{{ message }}</p>
+
+  <p class="mt-4">
+    إذا لم يعمل الرابط، يرجى
+    <a routerLink="/auth/auth/confirm-email">إعادة الإرسال</a>.
+  </p>
+</div> -->
+<div *ngIf="message">
+  <p>{{ message }}</p>
+</div>

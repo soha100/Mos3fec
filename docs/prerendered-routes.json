@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/Mos3efk": {},
+    "/Mos3efk/auth": {},
+    "/Mos3efk/auth/auth": {},
+    "/Mos3efk/doctor": {},
+    "/Mos3efk/doctor/dashboard": {},
+    "/Mos3efk/doctor/dashboard/appointment": {},
+    "/Mos3efk/doctor/dashboard/comments": {},
+    "/Mos3efk/doctor/dashboard/doctor-profile": {},
+    "/Mos3efk/user": {}
+  }
+}

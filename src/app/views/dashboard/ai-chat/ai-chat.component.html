@@ -1,0 +1,156 @@
+<div class="flex h-screen bg-gray-50 text-gray-900">
+  <!-- منطقة الرسائل الرئيسية -->
+  <div class="flex-1 flex flex-col">
+    <header
+      class="flex justify-between items-center px-6 py-4 bg-white shadow border-b"
+    >
+      <div class="flex items-center gap-4">
+        <h1 class="text-[5vw] font-bold text-primary lg:text-[40px]">
+          مُسْعِفك
+        </h1>
+        <img
+          class="w-[6vw] lg:w-auto"
+          src="stethoscope_check (1).svg"
+          alt="Logo"
+        />
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- الزر و input الخاص بإنشاء شات جديد -->
+        <div class="flex items-center gap-2">
+          <button
+            *ngIf="!showNewChatInput"
+            (click)="showNewChatInput = true"
+            class="flex items-center gap-1 text-sm text-primary hover:text-blue-700"
+          >
+            ➕ <span>إنشاء شات جديد</span>
+          </button>
+          <div *ngIf="showNewChatInput" class="flex gap-2 items-center">
+            <input
+              [(ngModel)]="newChatName"
+              name="chatName"
+              placeholder="اسم الشات"
+              class="px-3 py-1 border border-primary rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+            />
+            <button
+              (click)="createChat()"
+              class="bg-primary text-white px-3 py-1 rounded text-sm"
+            >
+              إنشاء
+            </button>
+            <button
+              (click)="showNewChatInput = false"
+              class="text-gray-500 hover:text-red-500 text-sm"
+            >
+              إلغاء
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- منطقة الرسائل -->
+    <main class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- شاشة التحميل -->
+      <div *ngIf="isLoading" class="text-center text-gray-500">
+        <svg
+          class="animate-spin h-8 w-8 text-blue-500 mx-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          ></path>
+        </svg>
+        <p class="mt-2">جاري تحميل المحادثة...</p>
+      </div>
+
+      <!-- Placeholder إذا لم تكن هناك رسائل -->
+      <div
+        *ngIf="messages.length === 0 && !isLoading"
+        class="text-center text-gray-500"
+      >
+        لا توجد رسائل لهذه المحادثة بعد.
+      </div>
+
+      <!-- الرسائل -->
+      <div
+        *ngFor="let msg of messages"
+        [ngClass]="{
+          'text-right self-end bg-blue-100': msg.from === 'user',
+          'text-left self-start bg-gray-100': msg.from === 'bot'
+        }"
+        class="max-w-xl p-4 rounded-lg shadow-sm"
+      >
+        <!-- <p class="text-sm text-gray-500">
+          {{ msg.timestamp | date: 'shortTime' }}
+        </p> -->
+        <p>{{ msg.content }}</p>
+      </div>
+    </main>
+
+    <!-- شريط الإدخال -->
+    <form
+      (ngSubmit)="ask()"
+      *ngIf="selectedThreadId"
+      class="p-4 bg-white border-t flex items-center gap-2"
+    >
+      <input
+        [(ngModel)]="question"
+        name="question"
+        placeholder="اكتب سؤالك..."
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
+        required
+      />
+      <button
+        type="submit"
+        class="text-white bg-primary px-5 py-2 rounded-full"
+      >
+        إرسال
+      </button>
+    </form>
+  </div>
+
+  <!-- الشريط الجانبي -->
+  <aside class="w-1/4 bg-white shadow-lg border-r flex flex-col">
+    <header class="p-4 border-b flex justify-between items-center">
+      <h2 class="text-lg font-bold">جميع المحادثات</h2>
+      <button
+        *ngIf="chats && chats.length > 0"
+        (click)="deleteAllChats()"
+        class="mt-2 bg-red-600 text-white px-4 py-2 rounded text-sm hover:bg-red-700"
+      >
+        مسح جميع المحادثات
+      </button>
+    </header>
+    <ul class="flex-1 overflow-y-auto p-4 space-y-2">
+      <li
+        *ngFor="let chat of chats"
+        (click)="selectChat(chat)"
+        [ngClass]="{
+          'bg-blue-100 border-blue-500': selectedThreadId === chat.thread_id,
+          'hover:bg-gray-200': selectedThreadId !== chat.thread_id
+        }"
+        class="flex justify-between items-center p-3 rounded cursor-pointer border transition duration-200"
+      >
+        <span class="font-medium text-gray-700">{{ chat.chat_name }}</span>
+        <button
+          (click)="deleteChat(chat.thread_id); $event.stopPropagation()"
+          class="text-red-600 text-sm hover:underline"
+        >
+          🗑️
+        </button>
+      </li>
+    </ul>
+  </aside>
+</div>

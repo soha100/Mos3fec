@@ -1,0 +1,68 @@
+<div class="p-[30px] mb-8">
+  <h2 class="text-[35px] font-medium text-primary mb-8">المعاملات</h2>
+
+  <div class="bg-[rgba(217,217,217,0.4)] rounded-[10px] p-5 overflow-x-auto">
+    <table class="w-full">
+      <thead class="">
+        <tr class="border-b text-primary text-[20px] bg-white">
+          <th class="py-3 text-right">كود المعاملة</th>
+          <th class="py-3 text-right">اسم المريض</th>
+          <th class="py-3 text-right">قيمة الدفع</th>
+          <th class="py-3 text-right">الحالة</th>
+          <th class="py-3 text-right">الاجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (transaction of transactions; track transaction.id){
+        <tr class="border-b last:border-0">
+          <td class="py-4 text-[#7B7D82] text-[12px]">
+            {{ transaction.report_id }}
+          </td>
+          <td class="py-4">
+            <div class="flex items-center gap-2">
+              <img
+                [src]="transaction.patientImage"
+                class="w-[52px] h-[52px] rounded-full"
+                [alt]="transaction.patientName"
+              />
+              <div>
+                <p>{{ transaction.patientName }}</p>
+                <p class="text-sm text-gray-500">#{{ transaction.id }}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 text-[#7B7D82] text-[12px]">
+            {{ transaction.amount }} جنيه
+          </td>
+
+          <td class="py-4">
+            <button
+              class="px-4 py-1 text-sm text-white border bg-primary rounded-[10px]"
+            >
+              دفع
+            </button>
+          </td>
+
+          <td class="py-4">
+            <button
+              class="px-4 py-1 text-sm text-[#F61E1E] border border-[#F61E1E] rounded-[10px]"
+            >
+              حذف
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <div class="flex justify-between items-center mt-6">
+      <p class="text-sm text-gray-500">عرض 1 من 10 من الملفات</p>
+      <div class="flex gap-2">
+        <button class="px-3 py-1 border rounded text-sm">السابق</button>
+        <button class="px-3 py-1 bg-emerald-700 text-white rounded text-sm">
+          1
+        </button>
+        <button class="px-3 py-1 border rounded text-sm">التالي</button>
+      </div>
+    </div>
+  </div>
+</div>

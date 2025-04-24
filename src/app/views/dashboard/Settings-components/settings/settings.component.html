@@ -1,0 +1,64 @@
+<div class="p-6">
+  <!-- العنوان -->
+  <h2 class="text-primary text-[35px] font-bold mb-4 text-right">
+    إعدادات الحساب
+  </h2>
+
+  <!-- القائمة -->
+  <div
+    class="bg-gray-100 p-4 rounded-lg shadow-md flex justify-between items-center"
+  >
+    <!-- اللينكات -->
+    <div class="flex gap-3 flex-wrap">
+      <a
+        routerLink="working-hours"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        مواعيد العمل
+      </a>
+      <a
+        routerLink="clinic"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        العيادات
+      </a>
+      <a
+        routerLink="awards"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        الجوائز والتكريمات
+      </a>
+      <a
+        routerLink="education"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        التعليم
+      </a>
+      <a
+        routerLink="experiences"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        الخبرات
+      </a>
+      <a
+        routerLink="personal-info"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border border-primary text-primary px-4 py-2 rounded-full text-sm font-semibold"
+      >
+        معلومات شخصية
+      </a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

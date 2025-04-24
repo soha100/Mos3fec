@@ -1,0 +1,114 @@
+<nav
+  class="absolute w-full z-10 h-[72px] shadow-[0px_4px_6px_rgb(168,213,186,0.7)]"
+>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <div class="text-[48px] font-bold text-primary font-arabic">
+          مُسْعِفك
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button
+          class="text-primary hover:text-primary-dark"
+          (click)="toggleMobileMenu()"
+        >
+          <svg
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              *ngIf="!isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              *ngIf="isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-[24px] text-primary">
+        <a href="#" class="hover:text-primary"> الرئيسية</a>
+        <a href="#" class="hover:text-primary">التخصصات</a>
+        <a href="#" class="hover:text-primary">الاطباء</a>
+        <a href="#" class="hover:text-primary">تواصل معنا</a>
+        <button
+          class="text-[16px] text-white bg-primary hover:bg-primary-800 focus:outline-none rounded-full px-2 py-2 text-center"
+          routerLink="/auth/auth/login"
+        >
+          تسجيل الدخول
+        </button>
+        <button
+          class="text-[16px] text-primary px-2 py-2 rounded-lg"
+          routerLink="/auth/auth/register"
+        >
+          انشاء حساب
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu drawer -->
+  <div
+    class="md:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50"
+    [class.translate-x-0]="isMobileMenuOpen"
+    [class.translate-x-full]="!isMobileMenuOpen"
+  >
+    <div class="flex flex-col h-full pt-20 px-4">
+      <a
+        href="#"
+        class="py-3 text-[20px] text-primary hover:text-primary-dark border-b border-gray-200"
+        >الرئيسية</a
+      >
+      <a
+        href="#"
+        class="py-3 text-[20px] text-primary hover:text-primary-dark border-b border-gray-200"
+        >التخصصات</a
+      >
+      <a
+        href="#"
+        class="py-3 text-[20px] text-primary hover:text-primary-dark border-b border-gray-200"
+        >الاطباء</a
+      >
+      <a
+        href="#"
+        class="py-3 text-[20px] text-primary hover:text-primary-dark border-b border-gray-200"
+        >تواصل معنا</a
+      >
+      <div class="mt-4 space-y-3">
+        <button
+          class="w-full text-[16px] text-white bg-primary hover:bg-primary-dark focus:outline-none rounded-full px-6 py-2 text-center"
+          routerLink="/auth/auth/login"
+        >
+          تسجيل الدخول
+        </button>
+        <button
+          class="w-full text-[16px] text-primary px-6 py-2 rounded-full border-2 border-primary hover:bg-primary transition-colors duration-200"
+          routerLink="/auth/auth/register"
+        >
+          انشاء حساب
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay for mobile menu -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-100"
+    (click)="toggleMobileMenu()"
+  ></div>
+</nav>
+<router-outlet></router-outlet>

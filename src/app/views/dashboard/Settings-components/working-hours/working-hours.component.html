@@ -1,0 +1,47 @@
+<div class="p-6">
+  <div class="flex justify-between items-center">
+    <h2
+      class="text-primary text-[24px] sm:text-[20px] xs:text-[18px] font-bold"
+    >
+      مواعيد العمل
+    </h2>
+
+    <button
+      class="px-4 py-2 border rounded-[10px] text-primary border-[#2E7D5C] mt-4"
+    >
+      إضافة موعد أخرى
+    </button>
+  </div>
+  <div class="bg-gray-100 p-4 mt-4 rounded-lg flex flex-wrap gap-2">
+    <button
+      *ngFor="let day of days"
+      (click)="selectDay(day)"
+      [class.bg-green-700]="selectedDays.includes(day)"
+      [class.text-white]="selectedDays.includes(day)"
+      class="px-6 py-1 border rounded-[30px] text-gray-700"
+    >
+      {{ day }}
+    </button>
+  </div>
+
+  <div class="mt-4 space-y-2">
+    <div
+      *ngFor="let entry of schedule"
+      class="flex justify-between items-center border rounded-md p-2"
+    >
+      <span class="text-primary">{{ entry }}</span>
+      <button class="text-red-500">حذف</button>
+    </div>
+  </div>
+
+  <div class="mt-4 flex gap-2 justify-end">
+    <button
+      class="px-4 py-2 bg-white text-red-500 border border-red-500 rounded-md"
+    >
+      إلغاء
+    </button>
+    <button class="px-4 py-2 bg-primary text-white rounded-md">
+      حفظ التعديلات
+    </button>
+  </div>
+</div>

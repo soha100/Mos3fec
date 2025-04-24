@@ -1,0 +1,231 @@
+<div
+  class="w-[98%] mx-auto bg-white rounded-3xl shadow-sm p-4 md:p-6 pt-8 md:pt-[40px] pb-12 md:pb-[70px] mb-8 md:mb-11"
+>
+  <div
+    class="border shadow-[0px_4px_12px_#a8d5ba] bg-white box-border lg:min-w-[1088px] p-4 md:pt-8 md:pb-11 md:px-[22px] rounded-3xl border-solid border-[#a8d5ba]"
+  >
+    <!-- الجزء الأول: التقويم والمواعيد المؤكدة والمتاحة -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+      <!-- Calendar Card -->
+      <div class="lg:col-span-4">
+        <div
+          class="h-full rounded-3xl bg-[rgba(168,213,186,0.60)] p-4 shadow-[10px_5px_12px_rgba(168,213,186,0.5)]"
+        >
+          <app-calender></app-calender>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <!-- المواعيد المؤكدة والمتاحة -->
+        <div class="flex flex-col flex-1 box-border">
+          <!-- المواعيد المتاحة -->
+          <div class="box-border flex flex-col gap-4 mt-3">
+            <p class="text-xl font-bold text-right text-[#2e7d5c] h-6 m-0 p-0">
+              المواعيد المتاحة
+            </p>
+
+            <div
+              class="box-border flex flex-wrap justify-start items-center gap-2 md:gap-4 max-h-[100px] overflow-auto"
+            >
+              <!-- الأزرار المتاحة -->
+              <button class="btn-available">11:00 ص</button>
+              <button class="btn-available">10:00 ص</button>
+              <button class="btn-available">09:00 ص</button>
+              <button class="btn-available">03:00 م</button>
+              <button class="btn-available">01:00 م</button>
+              <button class="btn-available">08:00 م</button>
+              <button class="btn-available">07:00 م</button>
+              <button class="btn-available">01:00 م</button>
+              <button class="btn-available">05:00 م</button>
+              <button class="btn-available">02:00 م</button>
+            </div>
+          </div>
+
+          <!-- الموعد القادم -->
+          <div
+            class="bg-[rgba(168,213,168,0.3)] p-4 rounded-[25px] shadow-md mt-5"
+          >
+            <h2 class="text-primary text-[24px] font-bold mb-4">
+              الموعد القادم
+            </h2>
+
+            <div
+              class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F]"
+            >
+              <div class="flex items-center gap-4">
+                <img
+                  src="pataint-1.png"
+                  alt="Profile"
+                  class="w-[52px] h-[52px] rounded-full"
+                />
+                <div>
+                  <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                  <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-gray-700">ibrahem.com</p>
+                <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+              </div>
+              <div class="text-center">
+                <p class="text-[12px] text-primary">حجز</p>
+                <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-4 p-3">
+              <div class="flex items-center justify-center gap-1">
+                <i class="fa-solid fa-video text-primary"></i>
+                <p class="text-[16px] text-[#23262F]">مواعيد الفيديو</p>
+              </div>
+              <div class="flex gap-2">
+                <button
+                  class="w-[103px] bg-white border-[] text-primary px-4 py-2 rounded-lg text-[12px]"
+                >
+                  مراسلة الان
+                </button>
+                <button
+                  class="w-[103px] bg-primary text-white px-4 py-2 rounded-lg text-[12px]"
+                >
+                  ابدأ الان
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- *****second Row******* -->
+    <div
+      class="bg-[rgba(168,213,168,0.2)] p-4 rounded-lg shadow-md w-full mx-auto mt-10"
+    >
+      <h2 class="text-primary text-[24px] font-bold mb-4">مواعيد اليوم</h2>
+
+      <!-- جعل القائمة قابلة للتمرير أفقيًا -->
+      <div class="overflow-x-auto">
+        <div class="min-w-[600px]">
+          <div
+            class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F] whitespace-nowrap"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="pataint-1.png"
+                alt="Profile"
+                class="w-[52px] h-[52px] rounded-full"
+              />
+              <div>
+                <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-700">ibrahem.com</p>
+              <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+            </div>
+            <div class="text-center">
+              <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              <p class="text-[12px] text-primary">حجز | شخصيا</p>
+            </div>
+            <button class="text-[12px] text-primary">ابدا الان</button>
+          </div>
+          <div
+            class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F] whitespace-nowrap"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="pataint-1.png"
+                alt="Profile"
+                class="w-[52px] h-[52px] rounded-full"
+              />
+              <div>
+                <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-700">ibrahem.com</p>
+              <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+            </div>
+            <div class="text-center">
+              <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              <p class="text-[12px] text-primary">حجز | شخصيا</p>
+            </div>
+            <button class="text-[12px] text-primary">ابدا الان</button>
+          </div>
+          <div
+            class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F] whitespace-nowrap"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="pataint-1.png"
+                alt="Profile"
+                class="w-[52px] h-[52px] rounded-full"
+              />
+              <div>
+                <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-700">ibrahem.com</p>
+              <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+            </div>
+            <div class="text-center">
+              <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              <p class="text-[12px] text-primary">حجز | شخصيا</p>
+            </div>
+            <button class="text-[12px] text-primary">ابدا الان</button>
+          </div>
+          <div
+            class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F] whitespace-nowrap"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="pataint-1.png"
+                alt="Profile"
+                class="w-[52px] h-[52px] rounded-full"
+              />
+              <div>
+                <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-700">ibrahem.com</p>
+              <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+            </div>
+            <div class="text-center">
+              <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              <p class="text-[12px] text-primary">حجز | شخصيا</p>
+            </div>
+            <button class="text-[12px] text-primary">ابدا الان</button>
+          </div>
+          <div
+            class="p-3 mb-2 flex items-center justify-between border-b border-[#23262F] whitespace-nowrap"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="pataint-1.png"
+                alt="Profile"
+                class="w-[52px] h-[52px] rounded-full"
+              />
+              <div>
+                <h3 class="text-[16px] text-[#23262F]">إبراهيم الدسوقي</h3>
+                <p class="text-[12px] text-[#7B7D82]">#00p123</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-700">ibrahem.com</p>
+              <p class="text-[12px] text-[#7B7D82]">020123333333</p>
+            </div>
+            <div class="text-center">
+              <p class="text-[12px] text-[#7B7D82]">08:30 AM اليوم</p>
+              <p class="text-[12px] text-primary">حجز | شخصيا</p>
+            </div>
+            <button class="text-[12px] text-primary">ابدا الان</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

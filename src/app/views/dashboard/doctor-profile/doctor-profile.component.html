@@ -1,0 +1,80 @@
+<div class="w-full mx-auto p-6">
+  <div
+    class="bg-white p-6 flex flex-col sm:flex-row justify-between items-start"
+  >
+    <div class="flex-1">
+      <div
+        class="flex flex-col sm:flex-row items-center shadow-[0px_4px_6px_#A8D5BA] rounded-lg p-5 mb-6"
+      >
+        <div class="ml-6 mb-4 sm:mb-0">
+          <img src="Image2.png" alt="Doctor" />
+        </div>
+        <div>
+          <h1 class="text-[20px] sm:text-[24px] font-bold text-primary mb-2">
+            {{ doctorFullName }}
+          </h1>
+          <h2 class="text-lg sm:text-[20px] text-[#2E7D5C] mb-4">
+            استشاري أسنان وجراحة الفم
+          </h2>
+          <p class="text-[#616161] mb-2 text-[16px] sm:text-[20px]">
+            خريج جامعة المنصوره
+          </p>
+          <div
+            class="flex items-center text-[#616161] mb-4 text-[16px] sm:text-[20px]"
+          >
+            <i
+              class="fa-solid fa-location-dot text-primary text-[18px] ml-2"
+            ></i>
+            المنصوره شارع الجلاء عماره 11
+          </div>
+          <div class="flex justify-between mb-6 text-primary items-center">
+            <p class="text-[16px] sm:text-[18px]">400 جنيه</p>
+            <a
+              href=""
+              class="text-[18px] sm:text-[20px] underline underline-offset-4"
+            >
+              تعديل
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-[20px] text-primary mb-4">السيره الذاتية</h3>
+        <p class="text-[16px] sm:text-[20px] text-[#7B7D82]">
+          <!-- بكالوريوس طب وجراحة الأسنان جامعة المنصوره - مصر(2015 - 2020)تقدير
+          امتياز مع مرتبة الشرف شهادة معتمدة في تجميل الأسنان الأكاديمية<br />
+          الأمريكية لتجميل الأسنان (2022) -->
+          {{ doctorData?.aboutMe }}
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-[20px] text-primary mb-4">مواعيد العمل</h3>
+        <p class="text-[#7B7D82]">
+          الإثنين - الجمعه،
+          <span class="text-[#23262F] font-bold">08:00 ص - 11:00 م </span>
+        </p>
+      </div>
+
+      <div class="p-5 border rounded-[20px]">
+        <h3 class="text-[20px] text-[#4F5159] mb-4">صور العياده</h3>
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-2">
+          <div class="flex justify-center">
+            <img src="clinc1.png" alt="Clinic" />
+          </div>
+          <div class="flex justify-center">
+            <img src="clinc2.png" alt="Clinic" />
+          </div>
+          <div class="flex justify-center">
+            <img src="clinc3.png" alt="Clinic" />
+          </div>
+          <div class="flex justify-center">
+            <img src="clinc4.png" alt="Clinic" />
+          </div>
+          <div class="flex justify-center">
+            <img src="clinc5.png" alt="Clinic" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

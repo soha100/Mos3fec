@@ -1,0 +1,75 @@
+<div class="bg-white rounded-lg shadow-md p-10">
+  <h2 class="text-[35px] font-medium text-primary mb-6">الفواتير الأخيره</h2>
+
+  <!-- تمرير أفقي للجدول عند الحاجة -->
+  <div class="overflow-x-auto max-w-full">
+    <table class="w-full min-w-max whitespace-nowrap">
+      <thead>
+        <tr
+          class="text-right text-[24px] text-primary border-b border-[#A8D5BA]"
+        >
+          <th class="pb-4 px-4">المريض</th>
+          <th class="pb-4 px-4">يوم الحجز</th>
+          <th class="pb-4 px-4">القيمة</th>
+          <th class="pb-4 px-4">يوم الدفع</th>
+          <th class="pb-4 px-4">الاستبيان</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (invoice of recentInvoices; track invoice.id) {
+        <tr class="border-b border-[#A8D5BA]">
+          <td class="py-2 px-4">
+            <div class="flex items-center gap-4">
+              <img
+                [src]="invoice.patientImage"
+                class="w-[52px] h-[52px] rounded-full"
+                [alt]="invoice.patientName"
+              />
+              <div>
+                <p class="text-[#23262F] text-[16px] sm:text-[18px]">
+                  {{ invoice.patientName }}
+                </p>
+                <p class="text-[#7B7D82] sm:text-[16px]">#{{ invoice.id }}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-2 px-4 text-[#A8D5BA] text-[20px] sm:text-[18px]">
+            {{ invoice.date }}
+          </td>
+          <td class="py-2 px-4 text-[#A8D5BA] text-[20px] sm:text-[18px]">
+            {{ invoice.amount }} جنيه
+          </td>
+          <td class="py-2 px-4 text-[#A8D5BA] text-[20px] sm:text-[18px]">
+            {{ invoice.date }}
+          </td>
+          <td class="py-2 px-4">
+            <button
+              class="text-[#3C4045] text-[20px] sm:text-[18px] bg-[rgba(168,213,186,0.4)] rounded-full w-[47px] h-[47px]"
+            >
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- أزرار الترقيم -->
+  <div class="flex justify-center mt-6 gap-2">
+    <button
+      class="w-8 h-8 rounded-full border border-[#016239] text-white bg-primary"
+    >
+      1
+    </button>
+    <button class="w-8 h-8 rounded-full border border-[#016239] text-black">
+      2
+    </button>
+    <button class="w-8 h-8 rounded-full border border-[#016239] text-black">
+      3
+    </button>
+    <button class="w-8 h-8 rounded-full border border-[#016239] text-black">
+      4
+    </button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.user-type-button {
+  @apply px-8 py-2 border-2 rounded-full transition-colors duration-300;
+}
+
+.user-type-button.active {
+  @apply bg-green-700 text-white border-green-700;
+}
+
+.user-type-button:not(.active) {
+  @apply border-green-700 text-green-700 hover:bg-green-50;
+}
